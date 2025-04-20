@@ -1,0 +1,55 @@
+<html>  
+<head>
+    <style>     
+        html{     
+        background-color: white;     
+        padding: 5px;     
+        width: 95%;     
+        }     
+        pre {     
+        overflow-x: auto;     
+        white-space: pre-wrap;     
+        white-space: -moz-pre-wrap;     
+        white-space: -pre-wrap;     
+        white-space: -o-pre-wrap;     
+        word-wrap: break-word;     
+        }     
+    </style>     
+    
+    <script type="text/javascript">     
+            
+            function setup(htmlComponent) {     
+            
+				htmlComponent.addEventListener("DataChanged", function(event) {     
+				scrollID =  htmlComponent.Data;     
+					if (scrollID != ''){
+						if(scrollID==="bottom"){         
+							scrollToBottom();     
+						} else if(scrollID==="DOWNLOAD_MCRINSTALLER" || scrollID==="BUILD_MISSING" || scrollID==="SAMPLE_GEN" || scrollID==="USER_REQUESTED_PACKAGE"){     
+							document.getElementById(scrollID).scrollIntoView(true);     
+						} else {     
+							//document.body.innerHTML = document.body.innerHTML + scrollID;     
+							document.body.appendChild(scrollID);                 
+							scrollToBottom();     
+						}    
+						htmlComponent.Data = '';
+					}		
+				});          
+            }     
+            function scrollToBottom(){     
+            var scrollingElement = (document.scrollingElement || document.body);     
+            scrollingElement.scrollTop = scrollingElement.scrollHeight;     
+            }     
+            
+    </script> 
+</head>
+ <body><meta charset="UTF-8">        
+ <pre><font color=blue>mcc -W 'webapp:app1_2,CONFIG:C:\Users\aziz\AppData\Local\Temp\tpf18ee19b_64e7_4f3d_b816_31f11a25ab23.xml' -d 'B:\Matlab PLC\programs\app1_2' -v -Z autodetect -C 'B:\Matlab PLC\programs\app1.mlapp'</font>
+Compiler version: 8.6 (R2023a)
+Analyzing file dependencies. 
+<font color='orange'>Warning: Any function in your web app that generates additional window is currently not supported. Check the following
+function(s) that generates additional window: errordlg,msgbox</font> 
+Parsing file "B:\Matlab PLC\programs\app1.mlapp"
+	(referenced from command line).
+
+</pre></body></html>
